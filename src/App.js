@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "styled-components";
+import Router from './structure/Router';
+import color_theme from './config/color_theme';
+import 'antd/dist/antd.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+ 
+  state = {
+      fakeData: [],
+  };
+
+
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/users?_limit=10')
+      .then(res => this.setState({
+        fakeData: res.data
+      }));
+  }
+
+  render() {
+    
+    return (
+      <div className="App">
+        <ThemeProvider theme={color_theme}>
+          <Router fakeData={this.state.fakeData}/>
+        </ThemeProvider>
+      </div>
+    );
+  }
 }
 
 export default App;

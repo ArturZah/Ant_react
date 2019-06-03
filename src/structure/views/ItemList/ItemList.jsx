@@ -7,6 +7,12 @@ import { List, Avatar } from 'antd';
 
 const StyledCnt = styled.div`
  margin: 1% !important; 
+
+ .ant-list-pagination {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
  `;
 
 const ItemList = ({fakeData}) => (
@@ -16,7 +22,13 @@ const ItemList = ({fakeData}) => (
       <h2 style={{marginBottom: '25px'}}>Items</h2>
       <LayoutCenter>
         <List
-        style={{width: '100%', padding: '0 20px'}}
+         pagination={{
+          onChange: page => {
+            console.log(page);
+          },
+          pageSize: 8,
+        }}
+        style={{width: '100%', padding: '0 20px', minHeight: '640px'}}
         itemLayout="horizontal"
         dataSource={fakeData}
         renderItem={item => (

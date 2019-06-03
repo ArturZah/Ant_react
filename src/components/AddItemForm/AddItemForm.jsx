@@ -8,7 +8,7 @@ const { TextArea } = Input
 
 const StyledCnt = styled.div`
  margin: 1% !important; 
- width: 400px;
+ width: 440px;
  `;
 
 class AddItemForm extends React.Component {
@@ -26,7 +26,7 @@ class AddItemForm extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return <StyledCnt>
       <LayoutCenter >
-        <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '100%'}}>
+        <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '100%', padding: '20px', backgroundColor: '#eee'}}>
           <Form.Item>
             {getFieldDecorator('name', {
               rules: [{ required: true, message: 'Please input your item name!' }],

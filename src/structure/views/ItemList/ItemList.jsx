@@ -11,7 +11,7 @@ const StyledCnt = styled.div`
 
   .ant-table-pagination.ant-pagination {
       float: right;
-      margin: 16px;
+      margin: 10px 30px;
   }
  `;
 
@@ -54,9 +54,9 @@ const ItemList = ({fakeData, delItem}) => {
   return (
     <Layout>
       <StyledCnt>
-        <h2 style={{marginBottom: '35px'}}>Items</h2>
+        <h2 style={{margin: '0 0 36px 25px'}}>Items</h2>
         <div className='tableCnt'>
-          <Table style={{width: '100%'}} pagination={{ pageSize: 10 }} columns={columns} dataSource={fakeData} />
+          <Table style={{width: '100%', minHeight: '78vh'}} pagination={{ pageSize: 10 }} columns={columns} dataSource={fakeData} />
         </div>    
       </StyledCnt>
     </Layout>

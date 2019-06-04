@@ -35,7 +35,7 @@ function DashboardCnt({fakeData}) {
     const dataCheck = fakeData === undefined || fakeData.length !== 0;
 
     return <StyledDiv>
-    <div style={{ background: '#ECECEC', padding: '30px', width: '45%' }}>
+    <div style={{ background: '#012b54', borderRadius: '5px', padding: '15px 15px 40px 15px', width: '45%' }}>
     <Card title="Leatest Users" bordered={false}>
       {
        fakeData.slice(-5).map(data =>
@@ -54,7 +54,7 @@ function DashboardCnt({fakeData}) {
     </Card>
     </div>
 
-    <div style={{ background: '#ECECEC', padding: '30px', width: '45%'}}>
+    <div style={{ background: '#012b54', borderRadius: '5px', padding: '15px 15px 40px 15px', width: '45%' }}>
     <Card title="Letest Items" bordered={false}>
       {
        fakeData.slice(-5).map(data =>

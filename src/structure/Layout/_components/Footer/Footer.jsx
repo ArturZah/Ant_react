@@ -5,6 +5,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   height: 50px;
   text-align: center;
+  background-color: #ccc; 
 `;
 
 export class Footer extends Component {

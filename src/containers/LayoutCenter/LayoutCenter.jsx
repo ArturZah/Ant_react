@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.color.white};
+  background-color: #012b54;
 `;
 
 const LayoutCenter = ({children}) => (

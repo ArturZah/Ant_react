@@ -9,8 +9,9 @@ const { Sider, Content } = Layout;
 
 const StyledMain = styled.main`
   flex-grow: 1;
-  padding: 2rem;
+  padding: 2rem 0 0 0;
   height: auto;
+  background-color: #ccc;  
   min-height: calc(100vh - 50px);
   margin: 0 auto;
   width: 100%;

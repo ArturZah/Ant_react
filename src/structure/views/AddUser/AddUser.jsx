@@ -5,7 +5,7 @@ import AddUserForm from './../../../components/AddUserForm'
 import LayoutCenter from './../../../containers/LayoutCenter';
 
 const StyledCnt = styled.div`
- margin: 1% !important; 
+   margin: 12px 0 0 0 !important; 
  `;
 
 class AddUser extends React.Component {
@@ -14,7 +14,7 @@ class AddUser extends React.Component {
 
     return <Layout>
     <StyledCnt>
-      <h2  style={{marginBottom: '25px'}}>Add User</h2>
+      <h2  style={{margin: '0 0 25px 25px'}}>Add User</h2>
       <LayoutCenter >
         <AddUserForm addUser={this.props.addUser}/>
       </LayoutCenter>

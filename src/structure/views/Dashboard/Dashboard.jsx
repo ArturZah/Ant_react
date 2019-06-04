@@ -8,7 +8,7 @@ import DashboardCnt from '../../../components/DashboardCnt/DashboardCnt';
 const cookies = new Cookies();
 
 const StyledCnt = styled.div`
- margin: 1% !important; 
+ margin: 12px 0 0 0 !important; 
  `;
 
 class Dashboard extends React.Component {
@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
 
     return <Layout>
     <StyledCnt>
-      <h2  style={{marginBottom: '25px'}}><span style={{textTransform: 'capitalize'}}> { this.state.user }</span> Dashboard</h2>
+      <h2  style={{margin: '0 0 25px 25px'}}><span style={{textTransform: 'capitalize'}}> { this.state.user }</span> Dashboard</h2>
       <LayoutCenter >
         <DashboardCnt fakeData={this.props.fakeData} />
       </LayoutCenter>

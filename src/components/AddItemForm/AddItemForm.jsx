@@ -47,7 +47,8 @@ class AddItemForm extends React.Component {
     return <StyledCnt>
       {this.renderRedirect()}
       <LayoutCenter >
-        <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '100%', padding: '20px', backgroundColor: '#eee'}}>
+        <div  style={{ background: '#012b54', borderRadius: '5px', padding: '20px 20px 50px 20px', width: '100%'}}>
+        <Form onSubmit={this.handleSubmit} className="login-form" style={{borderRadius: '5px', width: '100%', padding: '20px', backgroundColor: '#f0f2f5'}}>
           <Form.Item>
             {getFieldDecorator('name', {
               rules: [{ required: true, message: 'Please input your item name!' }],
@@ -83,9 +84,9 @@ class AddItemForm extends React.Component {
             <Button type="primary" htmlType="submit" className="login-form-button">
               Add item
             </Button>
-          </Form.Item>
-
-        </Form>
+          </Form.Item> 
+          </Form>
+        </div>
       </LayoutCenter>
     </StyledCnt>
   }

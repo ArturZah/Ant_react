@@ -104,7 +104,7 @@ class AddUserFrom extends React.Component {
     return <StyledCnt>
       {this.renderRedirect()}
       <LayoutCenter >
-        <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '100%', padding: '20px', backgroundColor: '#eee'}}>
+        <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '100%', padding: '20px', backgroundColor: '#eee', borderRadius: '5px'}}>
           <Form.Item>
             {getFieldDecorator('name', {
               rules: [{ required: true, message: 'Please input your item name!' }],

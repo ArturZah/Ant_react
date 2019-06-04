@@ -1,29 +1,29 @@
 import React from 'react';
 import Layout from "../../Layout";
 import styled from 'styled-components';
-import AddItemForm from './../../../components/AddItemForm'
+import AddUserForm from './../../../components/AddUserForm'
 import LayoutCenter from './../../../containers/LayoutCenter';
 
 const StyledCnt = styled.div`
  margin: 1% !important; 
  `;
 
-class AddItem extends React.Component {
+class AddUser extends React.Component {
 
   render() {
 
     return <Layout>
     <StyledCnt>
-      <h2  style={{marginBottom: '25px'}}>Add an item</h2>
+      <h2  style={{marginBottom: '25px'}}>Add User</h2>
       <LayoutCenter >
-        <AddItemForm addItem={this.props.addItem}/>
+        <AddUserForm addUser={this.props.addUser}/>
       </LayoutCenter>
     </StyledCnt>
   </Layout>
   }
 }
 
-AddItem.defaultProps = {};
-AddItem.propTypes = {};
+AddUser.defaultProps = {};
+AddUser.propTypes = {};
 
-export default AddItem;
+export default AddUser;

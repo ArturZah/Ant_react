@@ -31,72 +31,44 @@ const StyledP = styled.p`
   }
 `;
 
-
 function DashboardCnt({fakeData}) {
+    const dataCheck = fakeData === undefined || fakeData.length !== 0;
 
     return <StyledDiv>
     <div style={{ background: '#ECECEC', padding: '30px', width: '45%' }}>
     <Card title="Leatest Users" bordered={false}>
-      <StyledP>
-        <div>
-          <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-          ID: {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-1)[0].id : "None"}
-        </div>
-        <div>
-          {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-1)[0].name : "None"}
-          <Link style={{marginLeft: '15px'}} to={fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-1)[0].website : "None" }>Profil</Link> 
-        </div>
-      </StyledP>
-
-      <StyledP>
-        <div>
-          <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />  
-          ID: {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-2)[0].id : "None"}
-        </div>
- 
-        <div>
-          {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-2)[0].name : "None"}
-          <Link style={{marginLeft: '15px'}} to={fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-2)[0].website : "None" }>Profil</Link> 
-        </div>
-      </StyledP>
-
-      <StyledP>
-        <div>
-          <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" /> 
-          ID: {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-3)[0].id : "None"}
-        </div>  
-        <div>
-          {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-3)[0].name : "None"}
-          <Link style={{marginLeft: '15px'}} to={fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-3)[0].website : "None" }>Profil</Link> 
-        </div>
-      </StyledP>
+      {
+       fakeData.slice(-5).map(data =>
+        <StyledP key={data.id}>
+          <div>
+            <Avatar src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" />
+          </div>
+          <div>
+            { dataCheck ? data.name : "None"}
+            <Link style={{marginLeft: '15px'}} to={ dataCheck ? data.website : "None" }>Profil</Link> 
+          </div>
+        </StyledP>
+        
+        )
+      }
     </Card>
     </div>
 
     <div style={{ background: '#ECECEC', padding: '30px', width: '45%'}}>
     <Card title="Letest Items" bordered={false}>
-      <StyledP>
-        <span>
-          Nr: {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-1)[0].address.zipcode : "None"}
-        </span>
-        {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-1)[0].address.suite : "None"}
-      </StyledP>
-
-      <StyledP>
-        <span>
-          Nr: {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-2)[0].address.zipcode : "None"}
-        </span>
-        {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-2)[0].address.suite : "None"}
-      </StyledP>
-      <StyledP>
-        <span>
-          Nr: {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-3)[0].address.zipcode : "None"}
-        </span>
-        {fakeData === undefined || fakeData.length !== 0 ? fakeData.slice(-3)[0].address.suite : "None"}
-      </StyledP>
+      {
+       fakeData.slice(-5).map(data =>
+        <StyledP key={data.id}>
+          <span>
+            Nr: { dataCheck ? data.address.zipcode : "None"}
+          </span>
+          { dataCheck ? data.address.suite : "None"}
+        </StyledP>
+        )
+      }
     </Card>
     </div>
-    </StyledDiv>
+  </StyledDiv>
 }
 
 DashboardCnt.defaultProps = {};

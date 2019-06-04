@@ -1,10 +1,9 @@
 import React from 'react';
 import Layout from "../../Layout";
 import styled from 'styled-components';
-import { Table, Divider, Button, Popconfirm } from 'antd';
+import { Table, Avatar, Divider, Button, Popconfirm } from 'antd';
 
 const StyledCnt = styled.div`
-
   .tableCnt {
     background-color: #ffff;
   }
@@ -15,7 +14,7 @@ const StyledCnt = styled.div`
   }
  `;
 
-const ItemList = ({fakeData, delItem}) => {
+const UserList = ({fakeData, delItem}) => {
 
   const columns = [
     {
@@ -27,43 +26,56 @@ const ItemList = ({fakeData, delItem}) => {
       sorter: (a, b) => a.id - b.id,
     },
     {
+      title: 'Avatar',
+      key: 'avatar',
+      render: () => (
+        <span>
+          <Avatar src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png" />
+        </span>
+      ),
+    },
+    {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'Code',
-      key: 'code',
-      dataIndex: 'address.zipcode',
+      title: 'Email',
+      key: 'email',
+      dataIndex: 'email',
+    },
+    {
+      title: 'Website',
+      key: 'website',
+      dataIndex: 'website',
     },
     {
       title: '',
       key: 'action',
       render: (e) => (
         <span style={{display: 'flex', justifyContent: 'flex-end', marginRight: '16px',}}>
-          <Button type="primary">Edit</Button>
-          <Divider type="vertical" />
-          <Popconfirm title="Sure to delete?" onConfirm={() => delItem(e.id)}>
-            <Button type="danger">Delete</Button>
-          </Popconfirm>
+           <Button type="primary">Edit</Button>
+            <Divider type="vertical" />
+            <Popconfirm title="Sure to delete?" onConfirm={() => delItem(e.id)}>
+              <Button type="danger">Delete</Button>
+            </Popconfirm>
         </span>
       ),
     },
-  ];
+  ];  
 
-  return (
-    <Layout>
+  return (<Layout>
       <StyledCnt>
-        <h2 style={{marginBottom: '35px'}}>Items</h2>
+        <h2 style={{marginBottom: '35px'}}>Users</h2>
         <div className='tableCnt'>
           <Table style={{width: '100%'}} pagination={{ pageSize: 10 }} columns={columns} dataSource={fakeData} />
         </div>    
       </StyledCnt>
     </Layout>
-  );
+  ); 
 }
 
-ItemList.defaultProps = {};
-ItemList.propTypes = {};
+UserList.defaultProps = {};
+UserList.propTypes = {};
 
-export default ItemList;
+export default UserList;

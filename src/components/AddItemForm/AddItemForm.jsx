@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom';
 import LayoutCenter from './../../containers/LayoutCenter';
 import { Form, Icon, Input, Button } from 'antd';
 
@@ -13,11 +14,30 @@ const StyledCnt = styled.div`
 
 class AddItemForm extends React.Component {
 
+  state = {
+    redirect: false
+  }
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/item_list' />
+    }
+  }
+
   handleSubmit = e => {
+    console.log(this.props)
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        this.props.addItem(values.name, values.code);
+        this.setRedirect();
       }
     });
   };
@@ -25,6 +45,7 @@ class AddItemForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return <StyledCnt>
+      {this.renderRedirect()}
       <LayoutCenter >
         <Form onSubmit={this.handleSubmit} className="login-form" style={{width: '100%', padding: '20px', backgroundColor: '#eee'}}>
           <Form.Item>
@@ -50,16 +71,12 @@ class AddItemForm extends React.Component {
           </Form.Item>
 
           <Form.Item>
-            {getFieldDecorator('description', {
-              rules: [{ required: true, message: 'Please input description!' }],
-            })(
               <TextArea
                 prefix={<Icon type="file-text" style={{ color: 'rgba(0,0,0,.25)' }} />}
                 rows={4}
                 style={{resize: 'none'}}
                 placeholder="Description"
               />,
-            )}
           </Form.Item>
 
           <Form.Item>

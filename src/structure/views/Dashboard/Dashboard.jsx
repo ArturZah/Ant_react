@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
 
     return <Layout>
     <StyledCnt>
-      <h2  style={{marginBottom: '25px'}}><span style={{textTransform: 'capitalize'}}> { this.state.user } </span> Dashboard</h2>
+      <h2  style={{marginBottom: '25px'}}><span style={{textTransform: 'capitalize'}}> { this.state.user }</span> Dashboard</h2>
       <LayoutCenter >
         <DashboardCnt fakeData={this.props.fakeData} />
       </LayoutCenter>

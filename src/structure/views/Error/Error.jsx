@@ -1,8 +1,79 @@
-import React from 'react';
+import React, {useState} from 'react';
+import styled from 'styled-components';
+import {Redirect} from 'react-router-dom';
+import LayoutCenter from './../../../containers/LayoutCenter';
 
-const Error = () => (
-  <b>Error</b>
-);
+const StyledCnt = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+
+  div {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: 8em;
+      margin: 0;
+      width: 350px;
+    }
+
+    p {
+      width: 350px;
+      font-size: .9em;
+      margin: 0 !important;
+    }
+
+    div {
+      width: 350px;
+      display: flex;
+      align-items: baseline;
+
+      button {
+      float: left;
+      background-color: #00aced;
+      border: none;
+      cursor: pointer;
+      width: 100px;
+      height: 30px;
+      margin-top: 30px;
+      color: #fff;
+      border-radius: 5px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    }
+  }
+ `;
+
+function Error() {
+  const [redirect, setRedirect] = useState(false)
+
+  const renderRedirect = () => {
+    if (redirect) {
+      return <Redirect to='/' />
+    }
+  }
+
+  return <LayoutCenter>
+    {renderRedirect()}
+    <StyledCnt>
+      <img src="https://i.ibb.co/m9WpPT4/403.png" alt="Error 403"></img>
+      <div>
+        <h1>403</h1>
+        <p>This page is forbiden. Please back to main page</p>
+        <div>
+          <button onClick={() => setRedirect(true)}>Click</button>
+        </div>
+      </div>
+    </StyledCnt>
+  </LayoutCenter>
+}
 
 Error.defaultProps = {};
 

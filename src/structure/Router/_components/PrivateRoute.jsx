@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 
-const PrivateRoute = ({fakeData, component: Component, redirect, availableFor, ...rest }) => {
+const PrivateRoute = ({addItem, delItem, addUser, fakeData, component: Component, redirect, availableFor, ...rest }) => {
   
   const [redirectTo, setRedirectTo] = useState(redirect);
   const cookies = new Cookies();
@@ -24,7 +24,7 @@ const PrivateRoute = ({fakeData, component: Component, redirect, availableFor, .
         {...rest}
         render={
           props => hasAccess() ?
-              <Component {...props} fakeData={fakeData} />
+              <Component {...props} fakeData={fakeData} addUser={addUser} delItem={delItem} addItem={addItem} />
               :
               <Redirect
                   to={{

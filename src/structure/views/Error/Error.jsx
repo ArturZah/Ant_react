@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Redirect} from 'react-router-dom';
-import LayoutCenter from './../../../containers/LayoutCenter';
 
 const StyledCnt = styled.div`
   display: flex;
+  height: 100vh;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
+
+  img {
+    margin-left: 10%;
+  }
 
   div {
     width: 40%;
@@ -60,19 +64,18 @@ function Error() {
     }
   }
 
-  return <LayoutCenter>
+  return <StyledCnt>
     {renderRedirect()}
-    <StyledCnt>
-      <img src="https://i.ibb.co/m9WpPT4/403.png" alt="Error 403"></img>
+    <img src="https://i.ibb.co/m9WpPT4/403.png" alt="Error 403"></img>
+    <div>
+      <h1>403</h1>
+      <p>This page is forbiden. Please back to main page</p>
       <div>
-        <h1>403</h1>
-        <p>This page is forbiden. Please back to main page</p>
-        <div>
-          <button onClick={() => setRedirect(true)}>Click</button>
-        </div>
+        <button onClick={() => setRedirect(true)}>Click</button>
       </div>
-    </StyledCnt>
-  </LayoutCenter>
+    </div>
+  </StyledCnt>
+  
 }
 
 Error.defaultProps = {};

@@ -4,10 +4,10 @@ import {Redirect} from 'react-router-dom';
 
 const StyledCnt = styled.div`
   display: flex;
+  height: 100vh;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100vh;
 
   img {
     margin-left: 10%;
@@ -65,16 +65,26 @@ function Error() {
   }
 
   return <StyledCnt>
+<<<<<<< HEAD
       {renderRedirect()}
       <img src="https://i.ibb.co/m9WpPT4/403.png" alt="Error 403"></img>
+=======
+    {renderRedirect()}
+    <img src="https://i.ibb.co/m9WpPT4/403.png" alt="Error 403"></img>
+    <div>
+      <h1>403</h1>
+      <p>This page is forbiden. Please back to main page</p>
+>>>>>>> 207d5de9407c8c8504d9108620875162872dec11
       <div>
-        <h1>403</h1>
-        <p>This page is forbiden. Please back to main page</p>
-        <div>
-          <button onClick={() => setRedirect(true)}>Click</button>
-        </div>
+        <button onClick={() => setRedirect(true)}>Click</button>
       </div>
+<<<<<<< HEAD
     </StyledCnt>
+=======
+    </div>
+  </StyledCnt>
+  
+>>>>>>> 207d5de9407c8c8504d9108620875162872dec11
 }
 
 Error.defaultProps = {};

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import styled from 'styled-components';
-import { Form, Input, Button, Icon } from 'antd';
+import { Form, Input, Button, Icon, message } from 'antd';
 import Logo from './../Logo';
+import ResetPassModal from './../ResetPassModal';
 
 const cookies = new Cookies();
 
@@ -36,6 +37,11 @@ const LoginForm = ({form}) => {
   const [error, setError] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [visible, setVisible] = useState(false)
+    
+  const showModal = () => {
+    setVisible(true);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,10 +60,22 @@ const LoginForm = ({form}) => {
     });
   };
 
+  const handleCancel = () => {
+    setVisible(false);
+    form.resetFields();
+  };
+
+  const handleConfirm = () => {
+    setVisible(false);
+    form.resetFields();
+    message.info("New password was send to your email!")
+  };
+
   const clearError = () => setError('');
 
   return(
     <>
+      <ResetPassModal visible={visible} handleCancel={handleCancel} handleConfirm={handleConfirm}/>
       { redirect && <Redirect to='/' /> }
       <StyledForm onSubmit={handleSubmit} className="login-form">
       <Logo />
@@ -89,7 +107,7 @@ const LoginForm = ({form}) => {
           Log in
         </Button>
         Or <Link to="/register">register now!</Link>
-        <Link className="login-form-forgot" style={{float: 'right'}} to="/Login">
+        <Link onClick={() => showModal()} className="login-form-forgot" style={{float: 'right'}} to="/Login">
           Forgot password
         </Link>
       </Form.Item>

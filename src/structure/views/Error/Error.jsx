@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Redirect} from 'react-router-dom';
-import LayoutCenter from './../../../containers/LayoutCenter';
 
 const StyledCnt = styled.div`
   display: flex;

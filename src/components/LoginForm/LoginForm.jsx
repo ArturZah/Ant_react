@@ -68,7 +68,7 @@ const LoginForm = ({form}) => {
   const handleConfirm = () => {
     setVisible(false);
     form.resetFields();
-    message.info("New password was send to your email!")
+    message.info("New password was send to your email!");
   };
 
   const clearError = () => setError('');

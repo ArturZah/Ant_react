@@ -10,6 +10,7 @@ const ResetPassModal = ({visible, handleConfirm, handleCancel}) => {
 
   const clickConfirm = () => {
     if(document.getElementById('resetPassInput').value !== '' && validateEmail() === true) {
+      console.log(document.getElementById('resetPassInput').value);
       handleConfirm()
     } else {
       message.error("Please, type correct email adress!")
@@ -25,8 +26,8 @@ const ResetPassModal = ({visible, handleConfirm, handleCancel}) => {
       onOk={clickConfirm}
     >
       <Form layout="vertical">
-        <p>Please, type your email address and press ok to receive new password...</p>
-        <Input id="resetPassInput" prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} type="email" placeholder="youremail@email.com" />
+        <p>Please, type your email address and confirm to receive new password...</p>
+        <Input allowClear={true} id="resetPassInput" prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} type="email" placeholder="youremail@email.com" />
       </Form>
     </Modal>
   ); 

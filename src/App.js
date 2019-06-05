@@ -32,7 +32,9 @@ class App extends React.Component {
       address: {
         suite: 'Suite 123',
         zipcode: code,
-      }
+      },
+      email: 'email@test.pl',
+      website: 'http://website.com'
     }
 
     if( name !== '' && code !== ''){

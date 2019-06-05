@@ -7,7 +7,12 @@ const StyledCnt = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  height: 100vh;
+
+  img {
+    margin-left: 10%;
+  }
 
   div {
     width: 40%;
@@ -60,9 +65,8 @@ function Error() {
     }
   }
 
-  return <LayoutCenter>
-    {renderRedirect()}
-    <StyledCnt>
+  return <StyledCnt>
+      {renderRedirect()}
       <img src="https://i.ibb.co/m9WpPT4/403.png" alt="Error 403"></img>
       <div>
         <h1>403</h1>
@@ -72,7 +76,6 @@ function Error() {
         </div>
       </div>
     </StyledCnt>
-  </LayoutCenter>
 }
 
 Error.defaultProps = {};

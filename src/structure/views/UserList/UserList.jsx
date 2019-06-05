@@ -5,7 +5,7 @@ import { Table, Avatar, Divider, Button, Popconfirm } from 'antd';
 
 const StyledCnt = styled.div`
   .tableCnt {
-    background-color: #ffff;
+    background-color: #012b54;
   }
 
   .ant-table-pagination.ant-pagination {
@@ -66,9 +66,9 @@ const UserList = ({fakeData, delItem}) => {
 
   return (<Layout>
       <StyledCnt>
-        <h2 style={{margin: '0 0 36px 25px'}}>Users</h2>
+        <h2 style={{margin: '0 0 37px 25px'}}>Users</h2>
         <div className='tableCnt'>
-          <Table style={{width: '100%', minHeight: '78vh'}} pagination={{ pageSize: 10 }} columns={columns} dataSource={fakeData} />
+          <Table style={{width: '90%', minHeight: '78vh', margin: '0 auto', backgroundColor: '#fff'}} pagination={{ pageSize: 10 }} columns={columns} dataSource={fakeData} />
         </div>    
       </StyledCnt>
     </Layout>
